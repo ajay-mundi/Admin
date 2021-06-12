@@ -25,7 +25,4 @@ public class Course {
     public void setCourseCode(String courseCode){
         this.courseName = courseCode;
     }
-
-
-
 }
