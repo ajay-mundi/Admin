@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,7 @@ public class Fragment3 extends Fragment {
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment3_layout,container,false);
+        //View vr = inflater.inflate(R.layout.class_activity,container,false);
         listView = v.findViewById(R.id.listview);
 
 
@@ -54,8 +56,16 @@ public class Fragment3 extends Fragment {
               Course selected = courseList.get(position);
               String courseName = selected.getCourseName();
               String courseCode = selected.getCourseCode();
+              /*TextView coName = vr.findViewById(R.id.textView8);
+              TextView coCode = vr.findViewById(R.id.textView7);
 
+              coName.setText(courseName);
+              coName.append("h");
+              coCode.setText(courseCode);*/
               Intent intent = new Intent(getActivity(), CourseActivity.class);
+              intent.putExtra("CourseName", courseName);
+              intent.putExtra("CourseCode", courseCode);
+
               //based on item add info to intent
               startActivity(intent);
           }
