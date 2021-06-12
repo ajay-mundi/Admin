@@ -16,12 +16,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
             android:text="Course Name" />
 
         <EditText
             android:id="@+id/CourseCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
             android:text="Course Code" />
 
         <LinearLayout
@@ -33,7 +39,7 @@
                 android:id="@+id/Add"
                 android:layout_width="115dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:text="ADD" />
@@ -54,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="30dp"
                 android:layout_weight="1"
                 android:text="ALL" />
 
