@@ -37,4 +37,5 @@ public class courseListAdapter extends ArrayAdapter<Course> {
 
         return convertView;
     }
+
 }
