@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,6 +57,7 @@ public class Fragment3 extends Fragment {
               Course selected = courseList.get(position);
               String courseName = selected.getCourseName();
               String courseCode = selected.getCourseCode();
+
               /*TextView coName = vr.findViewById(R.id.textView8);
               TextView coCode = vr.findViewById(R.id.textView7);
 
@@ -70,8 +72,6 @@ public class Fragment3 extends Fragment {
               startActivity(intent);
           }
         });
-
-
         return v;
     }
 }
