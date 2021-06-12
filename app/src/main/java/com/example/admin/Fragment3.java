@@ -1,12 +1,15 @@
 package com.example.admin;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,8 +22,6 @@ import java.util.ArrayList;
 
 public class Fragment3 extends Fragment {
     private ArrayList<Course> courseList;
-    //ArrayAdapter<Course> adapter;
-    //private RecyclerView recyclerView;
     ListView listView;
     Activity context;
     @Nullable
@@ -30,7 +31,7 @@ public class Fragment3 extends Fragment {
         View v = inflater.inflate(R.layout.fragment3_layout,container,false);
         listView = v.findViewById(R.id.listview);
 
-        String[] display = {"Ajay", "Manvir", "Alex"};
+
         courseList = new ArrayList<Course>();
         courseList.add(new Course("Hydraulics","CVG2031"));
         courseList.add(new Course("Engineering Design","GNG2432"));
@@ -41,12 +42,24 @@ public class Fragment3 extends Fragment {
         courseList.add(new Course("Hydraulics","CVG2031"));
         courseList.add(new Course("Engineering Design","GNG2432"));
         courseList.add(new Course("Software Design","SEG4331"));
-        //ArrayAdapter<Course> adapter = new ArrayAdapter<Course>(context.getApplicationContext(), android.R.layout.simple_list_item_1, courseList);
-        //ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,display);
-        //listView.setAdapter(listViewAdapter);
+
         courseListAdapter adapter = new courseListAdapter(getActivity(), R.layout.adapter_view_layout, courseList);//used this.context instead of this
         listView.setAdapter(adapter);
-        //listView.setAdapter(adapter);
+
+        //
+        listView.setClickable(true);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+          @Override
+            public void onItemClick(AdapterView<?>adapter,View view, int position, long id) {
+              Course selected = courseList.get(position);
+              String courseName = selected.getCourseName();
+              String courseCode = selected.getCourseCode();
+
+              Intent intent = new Intent(getActivity(), CourseActivity.class);
+              //based on item add info to intent
+              startActivity(intent);
+          }
+        });
         return v;
     }
 }
