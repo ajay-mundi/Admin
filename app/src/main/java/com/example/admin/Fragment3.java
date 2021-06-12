@@ -59,6 +59,7 @@ public class Fragment3 extends Fragment{
               Course selected = courseList.get(position);
               String courseName = selected.getCourseName();
               String courseCode = selected.getCourseCode();
+
               Intent intent = new Intent(getActivity(), CourseActivity.class);
               intent.putExtra("CourseName", courseName);
               intent.putExtra("CourseCode", courseCode);
