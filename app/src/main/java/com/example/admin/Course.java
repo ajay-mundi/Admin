@@ -1,20 +1,28 @@
 package com.example.admin;
 
 public class Course {
-    private String coarseName;
+    private String courseName;
+    private String courseCode;
 
-    public Course(String coarseName){
-        this.coarseName = coarseName;
+    public Course(String courseName, String courseCode){
+
+        this.courseName = courseName;
+        this.courseCode = courseCode;
     }
 
-    public String getCoarseName(){
-        return coarseName;
+    public String getCourseName(){
+        return courseName;
     }
 
-    public void setCoarseName(String coarseName){
-        this.coarseName = coarseName;
+    public void setCourseName(String courseName){
+        this.courseName = courseName;
     }
 
+    public String getCourseCode(){
+        return courseCode;
+    }
 
-
+    public void setCourseCode(String courseCode){
+        this.courseName = courseCode;
+    }
 }

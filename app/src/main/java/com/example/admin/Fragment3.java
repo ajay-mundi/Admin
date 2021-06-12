@@ -32,12 +32,14 @@ public class Fragment3 extends Fragment {
 
         String[] display = {"Ajay", "Manvir", "Alex"};
         courseList = new ArrayList<Course>();
-        courseList.add(new Course("CVG2031"));
-        courseList.add(new Course("GNG2432"));
-        courseList.add(new Course("SEG4331"));
+        courseList.add(new Course("Hydraulics","CVG2031"));
+        courseList.add(new Course("Engineering Design","GNG2432"));
+        courseList.add(new Course("Software Design","SEG4331"));
         //ArrayAdapter<Course> adapter = new ArrayAdapter<Course>(context.getApplicationContext(), android.R.layout.simple_list_item_1, courseList);
-        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,display);
-        listView.setAdapter(listViewAdapter);
+        //ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,display);
+        //listView.setAdapter(listViewAdapter);
+        courseListAdapter adapter = new courseListAdapter(getActivity(), R.layout.adapter_view_layout, courseList);//used this.context instead of this
+        listView.setAdapter(adapter);
         //listView.setAdapter(adapter);
         return v;
     }
