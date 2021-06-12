@@ -42,7 +42,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull recyclerAdapter.MyViewHolder holder, int position) {
-        String name = courseList.get(position).getCoarseName();
+        String name = courseList.get(position).getCourseName();
         holder.nameTxt.setText(name);
 
     }
