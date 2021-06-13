@@ -39,7 +39,6 @@ public class Fragment3 extends Fragment{
         courseList = new ArrayList<Course>();
         NewDBHandler myDb = new NewDBHandler(getActivity());
         courseList = myDb.allCourses();
-
         courseListAdapter adapter = new courseListAdapter(getActivity(), R.layout.adapter_view_layout, courseList);
         listView.setAdapter(adapter);
         listView.setClickable(true);
