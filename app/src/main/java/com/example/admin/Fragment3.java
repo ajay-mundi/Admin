@@ -17,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.admin.ui.main.NewDBHandler;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -34,24 +36,12 @@ public class Fragment3 extends Fragment{
         View v = inflater.inflate(R.layout.fragment3_layout,container,false);
         add = v.findViewById(R.id.Add);
         listView = v.findViewById(R.id.listview);
-
-
         courseList = new ArrayList<Course>();
-        courseList.add(new Course("Hydraulics","CVG2031"));
-        courseList.add(new Course("Engineering Design","GNG2432"));
-        courseList.add(new Course("Software Design","SEG4331"));
-        courseList.add(new Course("Hydrology","CVG3344"));
-        courseList.add(new Course("Psychology","PSY2432"));
-        courseList.add(new Course("Roman Civilization","SEG4331"));
-        courseList.add(new Course("Structural Dynamics","CVG4444"));
-        courseList.add(new Course("Digital Systems","ITI1100"));
-        courseList.add(new Course("Calculus 2","MAT2477"));
+        NewDBHandler myDb = new NewDBHandler(getActivity());
+        courseList = myDb.allCourses();
 
-        courseListAdapter adapter = new courseListAdapter(getActivity(), R.layout.adapter_view_layout, courseList);//used this.context instead of this
+        courseListAdapter adapter = new courseListAdapter(getActivity(), R.layout.adapter_view_layout, courseList);
         listView.setAdapter(adapter);
-
-
-        //
         listView.setClickable(true);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
           @Override
@@ -75,8 +65,13 @@ public class Fragment3 extends Fragment{
                 String name = nameIn.getText().toString();
                 TextView codeIn = v.findViewById(R.id.CourseCode);
                 String code = codeIn.getText().toString();
-                courseList.add(new Course(name, code));
+                myDb.addCourse(name,code);
+                //myDb.deleteCourse(name);
+                courseList.clear();
+                courseList.addAll(myDb.allCourses());
                 adapter.notifyDataSetChanged();
+                nameIn.setText("Course Name");
+                codeIn.setText("Course Code");
             }
         });
         return v;
